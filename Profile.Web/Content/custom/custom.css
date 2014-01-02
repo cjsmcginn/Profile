@@ -1,0 +1,7 @@
+﻿span.c-divider-sm:empty {
+    margin: 0 4px 0 4px;
+}
+
+.c-no-wrap {
+    white-space: nowrap;
+}

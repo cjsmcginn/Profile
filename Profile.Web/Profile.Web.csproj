@@ -69,9 +69,23 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\custom.css" />
+    <Content Include="Content\custom\custom.css">
+      <DependentUpon>custom.less</DependentUpon>
+    </Content>
+    <Content Include="Content\custom\custom.min.css">
+      <DependentUpon>custom.less</DependentUpon>
+    </Content>
+    <Content Include="Content\custom\text.css">
+      <DependentUpon>text.less</DependentUpon>
+    </Content>
+    <Content Include="Content\custom\text.min.css">
+      <DependentUpon>text.less</DependentUpon>
+    </Content>
     <Content Include="Content\images\favicon.jpg" />
     <Content Include="Content\site.css" />
+    <Content Include="controls.html" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="index.html" />
     <Content Include="layout.html" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -118,6 +132,7 @@
     <Content Include="Content\bootstrap\badges.less" />
     <Content Include="Content\bootstrap\alerts.less" />
     <Content Include="Content\custom\custom.less" />
+    <Content Include="Content\custom\text.less" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
