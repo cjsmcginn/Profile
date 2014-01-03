@@ -25,13 +25,23 @@
     });
 
     commonModule.factory('common',
-    ['$rootScope', 'commonConfig','logger', common]);
+    ['$q','$rootScope', 'commonConfig','logger', common]);
 
-    function common($rootScope, commonConfig,logger) {
+    function common($q,$rootScope, commonConfig,logger) {
         var service = {
-            logger: logger
-        };
+            activateController:activateController,
+            logger: logger,
+            $q:$q
 
+        };
+        function activateController(promises, controllerId) {
+            return $q.all(promises).then(function (eventArgs) {
+                var data = { controllerId: controllerId };
+                var logSuccess = logger.getLogFn(controllerId, 'success');
+                logSuccess(controllerId,'Shell Loaded', true);
+                //$broadcast(commonConfig.config.controllerActivateSuccessEvent, data);
+            });
+        }
         return service;
     }
 
