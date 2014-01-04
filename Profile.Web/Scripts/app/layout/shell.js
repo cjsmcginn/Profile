@@ -28,7 +28,7 @@
         }
 
         $rootScope.$on(events.controllerActivateSuccess,
-            function(data) { logSuccess(controllerId, true, null); });
+            function(data) { logSuccess('Loaded',null,true); });
 
         //#region Internal Methods        
 

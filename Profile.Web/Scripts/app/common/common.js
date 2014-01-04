@@ -31,18 +31,21 @@
         var service = {
             activateController:activateController,
             logger: logger,
-            $q:$q
+            $q: $q
+            
 
         };
+
+        return service;
         function activateController(promises, controllerId) {
             return $q.all(promises).then(function (eventArgs) {
                 var data = { controllerId: controllerId };
-                var logSuccess = logger.getLogFn(controllerId, 'success');
-                logSuccess(controllerId,'Shell Loaded', true);
-                //$broadcast(commonConfig.config.controllerActivateSuccessEvent, data);
+                $broadcast(commonConfig.config.controllerActivateSuccessEvent, data);
             });
         }
-        return service;
+        function $broadcast() {
+            return $rootScope.$broadcast.apply($rootScope, arguments);
+        }
     }
 
 })();

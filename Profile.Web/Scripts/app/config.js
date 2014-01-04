@@ -16,4 +16,9 @@
             
         }
     }]);
+    //#region Configure the common services via commonConfig
+    profile.config(['commonConfigProvider', function (cfg) {
+        cfg.config.controllerActivateSuccessEvent = config.events.controllerActivateSuccess;
+        
+    }]);
 })();

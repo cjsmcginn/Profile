@@ -80,13 +80,21 @@
     <Content Include="Scripts\angular-touch.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\app\account\account.js" />
+    <Content Include="Scripts\app\account\template.html" />
     <Content Include="Scripts\app\common\common.js" />
     <Content Include="Scripts\app\common\logger.js" />
     <Content Include="Scripts\app\config.js" />
+    <Content Include="Scripts\app\config.route.js" />
+    <Content Include="Scripts\app\layout\nav.html" />
+    <Content Include="Scripts\app\layout\nav.js" />
     <Content Include="Scripts\app\layout\shell.html" />
     <Content Include="Scripts\app\layout\shell.js" />
     <Content Include="Scripts\app\profile.js" />
+    <Content Include="Scripts\app\profile\profile.js" />
+    <Content Include="Scripts\app\profile\template.html" />
     <Content Include="Scripts\app\services\datacontext.js" />
+    <Content Include="Scripts\app\services\routemediator.js" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular-touch.min.js.map" />
     <Content Include="Scripts\angular-sanitize.min.js.map" />
@@ -434,9 +442,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Scripts\app\controllers\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

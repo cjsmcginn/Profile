@@ -17,9 +17,10 @@
     ]);
 
     // Execute bootstrapping code and any dependencies.
-    profile.run(['$rootScope','common',
-        function ($rootScope,$common) {
-            var logSuccess = $common.logger.getLogFn(id, 'success');
+    profile.run(['$rootScope','common','routemediator',
+        function ($rootScope, common, routemediator) {
+            routemediator.setRoutingHandlers();
+            var logSuccess = common.logger.getLogFn(id, 'success');
             logSuccess('Application Started', true,null);
         }]);
 })();
