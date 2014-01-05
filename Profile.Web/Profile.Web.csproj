@@ -83,6 +83,7 @@
     <Content Include="Scripts\app\account\account.js" />
     <Content Include="Scripts\app\account\template.html" />
     <Content Include="Scripts\app\common\common.js" />
+    <Content Include="Scripts\app\common\directives.js" />
     <Content Include="Scripts\app\common\logger.js" />
     <Content Include="Scripts\app\config.js" />
     <Content Include="Scripts\app\config.route.js" />

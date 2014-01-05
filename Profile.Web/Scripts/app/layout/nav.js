@@ -13,7 +13,7 @@
     function nav($scope, $http, common, datacontext) {
         // Using 'Controller As' syntax, so we assign this to the vm variable (for viewmodel).
         var vm = this;
-        var moduleViewPath = 'scripts/app/{path}/template';
+        var moduleViewPath = 'scripts/app/{path}/template.html';
         var getLogFn = common.logger.getLogFn;
         var log = getLogFn(controllerId);
         var $q = common.$q;
@@ -24,7 +24,7 @@
         };
         vm.currentView = '';
         vm.showModule = function (item) {
-            vm.currentView = 'scripts/app/' + item.id + '/template.html';
+            vm.currentView = moduleViewPath.replace('{path}', item.id);
         };
         // Bindable properties and functions are placed on vm.
         vm.activate = activate;
