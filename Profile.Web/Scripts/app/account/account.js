@@ -20,7 +20,7 @@
         vm.activate = activate;
         vm.title = 'Account';
         vm.currentAccount = {
-            username: 'asss',
+            username: '',
             emailAddress: '',
             emailAddressConfirm:'',
             currentPassword: '',
