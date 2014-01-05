@@ -1,7 +1,7 @@
 ﻿<div class="row" data-ng-controller="nav as vm">
     <div class="col-sm-2">
         <ul class="nav nav-pills nav-stacked" data-ng-repeat="m in vm.modules.list">
-            <li><a href="javascript:void(0)" data-ng-click="vm.showModule(m)" data-template-html="{{m.templateHtml}}">{{m.title}}</a></li>
+            <li><a href="javascript:void(0)" data-ng-click="vm.broadcast(vm.showModule,m.id)" data-template-html="{{m.templateHtml}}">{{m.title}}</a></li>
         </ul>
     </div>
     <div class="col-sm-10 fader-animation" data-ng-include="vm.currentView">

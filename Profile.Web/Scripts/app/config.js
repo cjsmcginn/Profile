@@ -1,9 +1,11 @@
 ﻿(function () {
     'use strict';
-
+    toastr.options.timeOut = 4000;
+    toastr.options.positionClass = 'toast-bottom-right';
     var profile = angular.module('profile');
     var events = {
-        controllerActivateSuccess: 'controller.activateSuccess'
+        controllerActivateSuccess: 'controller.activateSuccess',
+        showModule:'showModule'
     };
     var config = {
         events:events

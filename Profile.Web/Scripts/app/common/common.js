@@ -12,6 +12,7 @@
     // events via the commonConfigProvider
     commonModule.provider('commonConfig', function () {
         this.config = {
+            
             // These are the properties we need to set
             //controllerActivateSuccessEvent: '',
             //spinnerToggleEvent: ''
@@ -29,7 +30,8 @@
 
     function common($q,$rootScope, commonConfig,logger) {
         var service = {
-            activateController:activateController,
+            activateController: activateController,
+            $broadcast: $broadcast,
             logger: logger,
             $q: $q
             

@@ -92,6 +92,8 @@
     <Content Include="Scripts\app\layout\nav.js" />
     <Content Include="Scripts\app\layout\shell.html" />
     <Content Include="Scripts\app\layout\shell.js" />
+    <Content Include="Scripts\app\login\login.js" />
+    <Content Include="Scripts\app\login\template.html" />
     <Content Include="Scripts\app\profile.js" />
     <Content Include="Scripts\app\profile\profile.js" />
     <Content Include="Scripts\app\profile\template.html" />

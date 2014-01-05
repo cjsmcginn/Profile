@@ -39,6 +39,7 @@
 
         activate();
         function activate() {
+            common.activateController([], controllerId);
         }
 
         //#region Internal Methods        
