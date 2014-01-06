@@ -5,24 +5,32 @@
     var serviceId = 'datacontext';
 
     angular.module('profile').factory(serviceId,
-           ['$rootScope', 'common', 'config','model.mapper',
+           ['$rootScope', 'common', 'config','model.mapper','mock.data',
                datacontext]);
-    function datacontext($rootScope, common, config,mapper) {
+    function datacontext($rootScope, common, config,mapper,mockData) {
         var $q = common.$q;
+        var logSuccess = common.logger.getLogFn(serviceId,'success');
         var service = {
-            getModules:getModules
+            getModules: getModules,
+            getProfile:getProfile
         };
         return service;
 
         function getModules() {
 
-            var data = [
-                { title: 'Account',id:'account',index:0},
-                { title: 'Profile',id:'profile',index:1}
-                ];
+            var data = mockData.modules;
             return $q.when(data).then(function (response) {
                 var result = [];
+                logSuccess('Modules Loaded', null,true);
                 return mapper.module.toModels(data);
+            });
+        }
+        function getProfile() {
+            var data = mockData.profile;
+            return $q.when(data).then(function (response) {
+                var result = mapper.profile.toModel(data);
+                logSuccess('Profile Loaded', null, true);
+                return result;
             });
         }
     }

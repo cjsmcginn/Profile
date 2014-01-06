@@ -94,6 +94,7 @@
     <Content Include="Scripts\app\layout\shell.js" />
     <Content Include="Scripts\app\login\login.js" />
     <Content Include="Scripts\app\login\template.html" />
+    <Content Include="Scripts\app\mock\mock.data.js" />
     <Content Include="Scripts\app\profile.js" />
     <Content Include="Scripts\app\profile\profile.js" />
     <Content Include="Scripts\app\profile\template.html" />
