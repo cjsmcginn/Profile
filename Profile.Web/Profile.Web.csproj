@@ -98,6 +98,8 @@
     <Content Include="Scripts\app\profile\profile.js" />
     <Content Include="Scripts\app\profile\template.html" />
     <Content Include="Scripts\app\services\datacontext.js" />
+    <Content Include="Scripts\app\services\model.js" />
+    <Content Include="Scripts\app\services\model.mapper.js" />
     <Content Include="Scripts\app\services\routemediator.js" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular-touch.min.js.map" />
