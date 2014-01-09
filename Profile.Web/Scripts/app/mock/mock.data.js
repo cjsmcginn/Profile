@@ -17,8 +17,48 @@
                 lastName: 'Doe',
                 city: 'Anywhere',
                 stateProvince: 'New York',
-                country:'USA'
-            }
+                country: 'USA',
+                countryId: 0,
+                stateProvinceId:0
+            },
+            countries: [
+                {
+                    id: 1,
+                    abbreviation: 'USA',
+                    name: 'United States',
+                    stateProvinces: [
+                        {
+                            id: 1,
+                            abbreviation: 'AL',
+                            name: 'Alabama',
+                        },
+                        {
+                            id: 2,
+                            abbreviation: 'NY',
+                            name: 'New York',
+                        }
+                    ]
+
+                },
+                {
+                    id: 2,
+                    abbreviation: 'CAN',
+                    name: 'Canada',
+                    stateProvinces: [
+                        {
+                            id: 1,
+                            abbreviation: 'AL',
+                            name: 'Alberta',
+                        },
+                        {
+                            id: 2,
+                            abbreviation: 'MN',
+                            name: 'Manitoba',
+                        }
+                    ]
+
+                }
+            ]
         };
         return service;
     }

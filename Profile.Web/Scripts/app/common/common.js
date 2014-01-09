@@ -34,8 +34,6 @@
             $broadcast: $broadcast,
             logger: logger,
             $q: $q
-            
-
         };
 
         return service;

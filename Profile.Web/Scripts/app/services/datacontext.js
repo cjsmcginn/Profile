@@ -12,7 +12,8 @@
         var logSuccess = common.logger.getLogFn(serviceId,'success');
         var service = {
             getModules: getModules,
-            getProfile:getProfile
+            getProfile: getProfile,
+            getCountries:getCountries
         };
         return service;
 
@@ -30,6 +31,14 @@
             return $q.when(data).then(function (response) {
                 var result = mapper.profile.toModel(data);
                 logSuccess('Profile Loaded', null, true);
+                return result;
+            });
+        }
+        function getCountries() {
+            var data = mockData.countries;
+            return $q.when(data).then(function (response) {
+                var result = mapper.country.toModels(data);
+                logSuccess('Countries Loaded', null, true);
                 return result;
             });
         }

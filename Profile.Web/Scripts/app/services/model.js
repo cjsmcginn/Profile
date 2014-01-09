@@ -8,10 +8,20 @@
            model]);
     function model($rootScope) {
         var service = {
+            Country:Country,
             Module: Module,
             Profile:Profile
         };
         return service;
+        function Country() {
+            var result = {
+                id: 0,
+                abbreviation: '',
+                name: '',
+                stateProvinces:[]
+            };
+            return result;
+        }
         function Profile() {
             var result = {
                 firstName: '',
