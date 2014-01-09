@@ -20,6 +20,10 @@
         vm.profile = {};
         vm.countries = [];
         vm.stateProvinces = [];
+
+        vm.countrySelected = function(e, a) {
+            loadStateProvinces();
+        };
         activate();
         function activate() {
             common.activateController([loadData()], controllerId);
@@ -29,16 +33,17 @@
                 vm.profile = d[0];
                 vm.countries = d[1];
                 vm.selectedCountry = _.find(vm.countries, function (el) { return el.id == vm.profile.countryId; });
-                if (vm.selectedCountry) {
-                    vm.stateProvinces = vm.selectedCountry.stateProvinces;
-                    vm.selectedStateProvince = _.find(vm.stateProvinces, function (el) { return el.id == vm.profile.stateProvinceId; });
-                }
-               
+                loadStateProvinces();
                 return d;
             });
         }
         //#region Internal Methods        
-
+        function loadStateProvinces() {
+            if (!vm.selectedCountry)
+                return;
+            vm.stateProvinces = vm.selectedCountry.stateProvinces;
+            vm.selectedStateProvince = _.find(vm.stateProvinces, function (el) { return el.id == vm.profile.stateProvinceId; });
+        }
         //#endregion
     }
 })();
