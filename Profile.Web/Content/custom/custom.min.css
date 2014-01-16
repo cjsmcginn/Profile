@@ -1,1 +1,1 @@
-﻿span.c-divider-sm:empty{margin:0 4px 0 4px}.c-no-wrap{white-space:nowrap}
+﻿#shell .modal-body{padding:0;background:#fff}#shell .modal-header{border-bottom:none}#shell .modal-footer{border-top:none;margin-top:0}#nav{background:rgba(128,128,128,.5)}#navContent{background:#fff}#navMenu{padding:0;background:#fff}span.c-divider-sm:empty{margin:0 4px 0 4px}.c-no-wrap{white-space:nowrap}.nav li[data-active="true"]{background:#000}

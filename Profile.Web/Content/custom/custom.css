@@ -1,7 +1,38 @@
-﻿span.c-divider-sm:empty {
+﻿#shell .modal-body {
+    padding: 0px;
+    background: #ffffff;
+}
+
+#shell .modal-header {
+    border-bottom: none;
+}
+
+#shell .modal-footer {
+    border-top: none;
+    margin-top: 0px;
+}
+
+#nav {
+    background: rgba(128, 128, 128, 0.5);
+}
+
+#navContent {
+    background: #ffffff;
+}
+
+#navMenu {
+    padding: 0px;
+    background: #ffffff;
+}
+
+span.c-divider-sm:empty {
     margin: 0 4px 0 4px;
 }
 
 .c-no-wrap {
     white-space: nowrap;
+}
+
+.nav li[data-active="true"] {
+    background: #000000;
 }

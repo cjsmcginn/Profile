@@ -60,6 +60,24 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\animations.css" />
+    <Content Include="Content\custom\nav.css">
+      <DependentUpon>nav.less</DependentUpon>
+    </Content>
+    <Content Include="Content\custom\nav.min.css">
+      <DependentUpon>nav.less</DependentUpon>
+    </Content>
+    <Content Include="Content\custom\theme.css">
+      <DependentUpon>theme.less</DependentUpon>
+    </Content>
+    <Content Include="Content\custom\theme.min.css">
+      <DependentUpon>theme.less</DependentUpon>
+    </Content>
+    <Content Include="Content\custom\variables.css">
+      <DependentUpon>variables.less</DependentUpon>
+    </Content>
+    <Content Include="Content\custom\variables.min.css">
+      <DependentUpon>variables.less</DependentUpon>
+    </Content>
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
     <Content Include="Scripts\angular-animate.js" />
@@ -117,6 +135,9 @@
     <Content Include="Scripts\toastr.min.js" />
     <Content Include="Scripts\toastr.min.js.map" />
     <Content Include="Content\toastr.less" />
+    <Content Include="Content\custom\nav.less" />
+    <Content Include="Content\custom\variables.less" />
+    <Content Include="Content\custom\theme.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

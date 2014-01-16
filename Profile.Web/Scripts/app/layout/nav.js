@@ -24,9 +24,19 @@
             list: [],
             title: 'Modules'
         };
+        vm.activateMenu = function(e, a) {
+            console.log(e);
+        };
+        vm.trap = function(m) {
+            console.log(m);
+        };
         vm.currentView = moduleViewPath.replace('{path}', 'login');
         $scope.$on(config.events.showModule, function(data,id) {
             vm.currentView = moduleViewPath.replace('{path}', id);
+            //sets selected so this can be bound
+            _.each(vm.modules.list, function(x) {
+                x.selected = x.id === id;
+            });
         });
 
         // Bindable properties and functions are placed on vm.
@@ -39,9 +49,11 @@
         }
         function getModules() {
             datacontext.getModules().then(function (data) {
-                return vm.modules.list = data.sort(function (r1, r2) {
+                var result= vm.modules.list = data.sort(function (r1, r2) {
                     return r1.index > r2.index;
                 });
+                _.each(result, function (d) { d.selected = false; });
+                return result;
             });
         }
         

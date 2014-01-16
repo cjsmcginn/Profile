@@ -73,6 +73,7 @@
         return {
             restrict: 'A',
             require: 'ngModel',
+         
             link: function (scope, elm, attrs, ctrl) {
                 elm.on('blur', function (e, n) {
                     var max = Number(scope.$eval(attrs.uiMaxlength));
@@ -98,5 +99,26 @@
             }
         };
     });
+    angular.module('profile').directive('uiNavlist', function () {
+        var element = null;
+        return {
+            restrict: 'A',
+            transclude:true,
+            link: function (scope, elm, attrs) {
+                element = elm;
+                
+                //if (scope.$last) {
+                //    //console.log(angular.element(elm).find('li'));
+                //    elm.on('click', function (e, a) {
+                //        angular.element(e.currentTarget).find('li').addClass(active);
+                //        console.log(e);
+                //        console.log(a);
+                //    });
+                //}
 
+            }
+        };
+
+
+    });
 })();
