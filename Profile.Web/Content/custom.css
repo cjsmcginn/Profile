@@ -1,15 +1,32 @@
+#shell .modal .modal-content {
+  background: url(images/md-header-bg.gif) repeat-x;
+}
+
 #shell .modal-body {
-  padding: 0;
+  padding: 0 15px 0 15px;
   background: #ffffff;
 }
 
 #shell .modal-header {
+  color: #ffffff;
   border-bottom: none;
 }
 
 #shell .modal-footer {
+  height: 35px;
+  padding: 0;
   margin-top: 0;
+  background: url(images/md-footer-bg.jpg) no-repeat;
   border-top: none;
+  border-radius: 0 0 6px 6px;
+}
+
+#shell .modal-content.col-sm-8 {
+  padding: 0;
+}
+
+#nav .table {
+  margin: 0;
 }
 
 span.c-divider-sm:empty {
