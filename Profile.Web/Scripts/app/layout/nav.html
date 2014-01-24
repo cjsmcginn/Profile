@@ -1,14 +1,14 @@
 ﻿<div id="nav" class="row" data-ng-controller="nav as vm">
     <table class="table">
         <tr>
-            <td>
+            <td id="nav-menu">
                 <ul class="nav nav-stacked">
-                    <li data-ng-repeat="m in vm.modules.list" data-active="{{m.selected}}">
+                    <li data-ng-repeat="m in vm.modules.list" class="{{m.selected?'active':'inactive'}}">
                         <a href="javascript:void(0)" data-ng-click="vm.broadcast(vm.showModule,m.id)" data-template-html="{{m.templateHtml}}">{{m.title}}</a>
                     </li>
                 </ul>
             </td>
-            <td>
+            <td id="nav-content">
                 <div id="navContent" class="col-sm-10 fader-animation" data-ng-include="vm.currentView">
                 </div>
             </td>

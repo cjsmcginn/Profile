@@ -1,3 +1,11 @@
+span.c-divider-sm:empty {
+  margin: 0 4px 0 4px;
+}
+
+.c-no-wrap {
+  white-space: nowrap;
+}
+
 #shell .modal .modal-content {
   background: url(images/md-header-bg.gif) repeat-x;
 }
@@ -29,25 +37,21 @@
   margin: 0;
 }
 
-span.c-divider-sm:empty {
-  margin: 0 4px 0 4px;
+#nav table {
+  margin-bottom: 0;
 }
 
-.c-no-wrap {
-  white-space: nowrap;
-}
-
-#nav td:first-child {
+#nav #nav-menu {
   width: 148px;
   padding: 0;
-  background: url(images/tab-bg.jpg) repeat-y !important;
+  background: url(images/tab-bg.jpg) repeat-y;
 }
 
-#nav td:first-child li {
+#nav #nav-menu li {
   margin-top: 0;
 }
 
-#nav td:first-child li a {
+#nav #nav-menu a {
   display: block !important;
   padding: 14px 20px !important;
   margin: 0 !important;
@@ -64,6 +68,6 @@ span.c-divider-sm:empty {
           box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) !important;
 }
 
-#nav li[data-active="true"] {
+#nav #nav-menu li.active {
   background: #ffffff;
 }

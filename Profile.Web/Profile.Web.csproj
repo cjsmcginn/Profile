@@ -67,10 +67,10 @@
       <DependentUpon>nav.less</DependentUpon>
     </Content>
     <Content Include="Content\custom\theme.css">
-      <DependentUpon>theme.less</DependentUpon>
+      <DependentUpon>shell.less</DependentUpon>
     </Content>
     <Content Include="Content\custom\theme.min.css">
-      <DependentUpon>theme.less</DependentUpon>
+      <DependentUpon>shell.less</DependentUpon>
     </Content>
     <Content Include="Content\custom\variables.css">
       <DependentUpon>variables.less</DependentUpon>
@@ -144,7 +144,7 @@
     <Content Include="Content\toastr.less" />
     <Content Include="Content\custom\nav.less" />
     <Content Include="Content\custom\variables.less" />
-    <Content Include="Content\custom\theme.less" />
+    <Content Include="Content\custom\shell.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

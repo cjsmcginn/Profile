@@ -1,4 +1,12 @@
-﻿#shell .modal .modal-content {
+﻿span.c-divider-sm:empty {
+    margin: 0 4px 0 4px;
+}
+
+.c-no-wrap {
+    white-space: nowrap;
+}
+
+#shell .modal .modal-content {
     background: url(images/md-header-bg.gif) repeat-x;
 }
 
@@ -29,25 +37,21 @@
     margin: 0px;
 }
 
-span.c-divider-sm:empty {
-    margin: 0 4px 0 4px;
+#nav table {
+    margin-bottom: 0px;
 }
 
-.c-no-wrap {
-    white-space: nowrap;
-}
-
-#nav td:first-child {
+#nav #nav-menu {
     width: 148px;
     padding: 0px;
     background: url(images/tab-bg.jpg) repeat-y !important;
 }
 
-#nav td:first-child li {
+#nav #nav-menu li {
     margin-top: 0px;
 }
 
-#nav td:first-child li a {
+#nav #nav-menu a {
     display: block !important;
     border-bottom: 1px solid #c6c6c6 !important;
     padding: 14px 20px !important;
@@ -64,6 +68,6 @@ span.c-divider-sm:empty {
     outline: none !important;
 }
 
-#nav li[data-active="true"] {
+#nav #nav-menu li.active {
     background: #ffffff;
 }
