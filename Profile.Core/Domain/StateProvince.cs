@@ -10,8 +10,8 @@ namespace Profile.Core.Domain
     {
         public string Name { get; set; }
         public string Abbereviation { get; set; }
-        public int CountryId { get; set; }
-
         public Country Country { get; set; }
+
+        public Guid CountryId { get; set; }
     }
 }

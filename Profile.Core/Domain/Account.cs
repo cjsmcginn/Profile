@@ -6,19 +6,23 @@ using System.Threading.Tasks;
 
 namespace Profile.Core.Domain
 {
-    public partial class Account:BaseEntity
+    public partial class Account : BaseEntity
     {
-   
+
         public virtual string Username { get; set; }
         public virtual string Password { get; set; }
         public virtual string PasswordSalt { get; set; }
         public virtual bool Encrypted { get; set; }
-        public virtual string Email { get; set; }
         public virtual DateTime CreatedOnUtc { get; set; }
         public virtual DateTime? LastUpdatedUtc { get; set; }
-        public bool Active { get; set; }
-       public AccountProfile AccountProfile { get; set; }
-    
+        public virtual bool Active { get; set; }
+        public virtual AccountProfile AccountProfile { get; set; }
+
+        public virtual DateTime? LastLogin { get; set; }
+        public virtual int RetryCount { get; set; }
+        public virtual bool IsLockedOut { get; set; }
+
+
 
     }
 }

@@ -12,7 +12,7 @@ namespace Profile.Data.Entities
     {
         public StateProvinceMap()
         {
-            this.HasOptional(sp => sp.Country).WithMany(c => c.StateProvinces);
+            this.HasRequired(sp => sp.Country).WithMany(c => c.StateProvinces).HasForeignKey(sp => sp.CountryId);
         }
     }
 }

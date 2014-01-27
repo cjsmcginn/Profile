@@ -11,6 +11,12 @@ namespace Profile.Core.Services
     {
         Account GetAccount(string username, string password);
         Account GetAccountById(Guid id);
+        ICreateAccountResponse CreateAccount(ICreateAccountRequest request);
         void SaveAccount(Account account);
+
+        void DeleteAccount(Account account);
+
+        IAuthenticationResponse Authenticate(IAuthenticationRequest request);
+
     }
 }
