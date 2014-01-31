@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Profile.Core.Services
 {
-    public interface IAuthenticationResponse
+    public interface IAuthorizationResponse
     {
-        string EncryptedTicket { get; }
+        string UserData { get; }
+        bool IsAuthorized { get;}
+        bool IsExpired { get;}
     }
 }

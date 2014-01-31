@@ -8,12 +8,16 @@ using Profile.Core.Domain;
 
 namespace Profile.Data.Entities
 {
-    public class AccountProfileMap:EntityTypeConfiguration<AccountProfile>
+    public class AccountProfileMap : EntityTypeConfiguration<AccountProfile>
     {
         public AccountProfileMap()
         {
-            this.HasRequired(ap => ap.Account);
-            this.HasOptional(ap => ap.Country);
+            HasRequired(ap => ap.Account);
+            HasOptional(ap => ap.Country);
+            Property(ap => ap.FirstName).HasMaxLength(50);
+            Property(ap => ap.LastName).HasMaxLength(100);
+            Property(ap => ap.City).HasMaxLength(100);
+
         }
     }
 }

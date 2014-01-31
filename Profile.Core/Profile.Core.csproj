@@ -47,9 +47,14 @@
     <Compile Include="Domain\StateProvince.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\IAccountService.cs" />
-    <Compile Include="Services\IAuthenticationRequest.cs" />
     <Compile Include="Services\IAuthenticationResponse.cs" />
+    <Compile Include="Services\IAccountService.cs" />
+    <Compile Include="Services\IAccountVerificationRequest.cs" />
+    <Compile Include="Services\IAccountVerificationResponse.cs" />
+    <Compile Include="Services\IAuthenticationRequest.cs" />
+    <Compile Include="Services\IAuthenticationService.cs" />
+    <Compile Include="Services\IAuthorizationRequest.cs" />
+    <Compile Include="Services\IAuthorizationResponse.cs" />
     <Compile Include="Services\ICreateAccountRequest.cs" />
     <Compile Include="Services\ICreateAccountResponse.cs" />
   </ItemGroup>

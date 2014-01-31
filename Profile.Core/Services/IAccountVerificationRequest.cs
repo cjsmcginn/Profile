@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Profile.Core.Services
 {
-    public interface IAuthenticationResponse
+    public interface IAccountVerificationRequest
     {
-        string EncryptedTicket { get; }
+        string Username { get; set; }
+        string Password { get; set; }
     }
 }

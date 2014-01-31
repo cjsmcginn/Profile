@@ -16,7 +16,7 @@ namespace Profile.Core.Services
 
         void DeleteAccount(Account account);
 
-        IAuthenticationResponse Authenticate(IAuthenticationRequest request);
+        IAccountVerificationResponse VerifyAccount(IAccountVerificationRequest request);
 
     }
 }
