@@ -14,6 +14,10 @@ namespace Profile.Data
 {
     public class ProfileDbContext : DbContext
     {
+        public ProfileDbContext()
+        {
+        }
+        public ProfileDbContext(string connectionStringName) : base(connectionStringName) { }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Country> Countries { get; set; }
 

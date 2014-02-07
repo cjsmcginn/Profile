@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using Nancy;
 using Nancy.ModelBinding;
 using Profile.Core.Services;
@@ -15,11 +16,11 @@ namespace Profile.Web.Modules
     public class AccountModule:NancyModule, IAccountModule
     {
         private readonly IAccountService _accountService;
-        private readonly IAuthenticationService _authenticationService;
-        public AccountModule(IAccountService accountService,IAuthenticationService authenticationService)
+
+        public AccountModule(IAccountService accountService)
         {
             _accountService = accountService;
-            _authenticationService = authenticationService;
+
             Get["/account"] = p =>
             {
                 var result = new AccountViewModel
@@ -27,6 +28,7 @@ namespace Profile.Web.Modules
                     Account = new AccountViewModel.AccountModel(),
                     IsAuthenticated = this.Context.CurrentUser != null
                 };
+            
                 if (this.Context.CurrentUser != null)
                 {
                     result.Account.Username = this.Context.CurrentUser.UserName;
@@ -125,15 +127,14 @@ namespace Profile.Web.Modules
             //facilitate testing, should never be null in hosted environment 
             if (this.Context != null)
             {
-                
-                var response = _authenticationService.SignIn(username);
-                this.After += ctx => ctx.SetAuthorizationCookie(response.EncryptedTicket);
+
+                this.After += ctx => FormsAuthentication.SetAuthCookie(username, true);
             }
         }
         public void Logout()
         {
             
-            this.After += ctx => { _authenticationService.SignOut(); };
+            this.After += ctx => FormsAuthentication.SignOut();
         }
     }
 }

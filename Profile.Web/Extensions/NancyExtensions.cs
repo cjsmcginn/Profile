@@ -16,27 +16,11 @@ namespace Profile.Web.Extensions
         static ProfileConfiguration profileConfiguration = System.Configuration.ConfigurationManager.GetSection("profileConfiguration") as ProfileConfiguration;
         public static void Authorize(this NancyContext context)
         {
-            //var profileConfig = System.Configuration.ConfigurationManager.GetSection("profileConfiguration") as ProfileConfiguration;
-            if (!context.Request.Cookies.ContainsKey(profileConfiguration.AuthorizationCookieName)) return;
-            if (!String.IsNullOrEmpty(context.Request.Cookies[profileConfiguration.AuthorizationCookieName]))
-            {
-                var ticket = FormsAuthentication.Decrypt(context.Request.Cookies[profileConfiguration.AuthorizationCookieName]);
-                if(ticket != null && ticket.Expiration>System.DateTime.UtcNow)
-                    context.CurrentUser = new UserIdentity(ticket.UserData);
-            }
+            if (!context.Request.Cookies.ContainsKey(FormsAuthentication.FormsCookieName)) return;
+            var ticket = FormsAuthentication.Decrypt(context.Request.Cookies[FormsAuthentication.FormsCookieName]);
+            if (ticket != null && ticket.Expiration > System.DateTime.UtcNow)
+                context.CurrentUser = new UserIdentity(ticket.Name);
         }
 
-
-        public static void SetAuthorizationCookie(this NancyContext context,string ticket)
-        {
-
-            //var authTicket = FormsAuthentication.Decrypt(ticket);
-            //if (authTicket != null) context.Response.WithCookie(authTicket.Name, ticket, authTicket.Expiration);
-        }
-
-        public static void ResetAuthorizationCookie(this NancyContext context)
-        {
-
-        }
     }
 }
