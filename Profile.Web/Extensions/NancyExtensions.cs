@@ -29,8 +29,9 @@ namespace Profile.Web.Extensions
 
         public static void SetAuthorizationCookie(this NancyContext context,string ticket)
         {
-            var authTicket = FormsAuthentication.Decrypt(ticket);
-            if (authTicket != null) context.Response.WithCookie(authTicket.Name, ticket, authTicket.Expiration);
+
+            //var authTicket = FormsAuthentication.Decrypt(ticket);
+            //if (authTicket != null) context.Response.WithCookie(authTicket.Name, ticket, authTicket.Expiration);
         }
 
         public static void ResetAuthorizationCookie(this NancyContext context)

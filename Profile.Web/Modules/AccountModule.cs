@@ -120,7 +120,6 @@ namespace Profile.Web.Modules
 
          
         }
-
         private void SetUser(string username)
         {
             //facilitate testing, should never be null in hosted environment 
@@ -131,11 +130,10 @@ namespace Profile.Web.Modules
                 this.After += ctx => ctx.SetAuthorizationCookie(response.EncryptedTicket);
             }
         }
-
         public void Logout()
         {
-
-            this.After += ctx => ctx.ResetAuthorizationCookie();
+            
+            this.After += ctx => { _authenticationService.SignOut(); };
         }
     }
 }
