@@ -8,9 +8,9 @@ namespace Profile.Core.Services
 {
     public interface IAuthenticationService
     {
-        IAuthenticationResponse SignIn(IAuthenticationRequest request);
+        IAuthenticationResponse SignIn(string userdata);
         void SignOut();
-        IAuthorizationResponse Authorize(IAuthorizationRequest request);
+
 
     }
 }

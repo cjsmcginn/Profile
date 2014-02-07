@@ -6,6 +6,7 @@ using Nancy;
 using Nancy.ModelBinding;
 using Profile.Core.Services;
 using Profile.Services;
+using Profile.Web.Extensions;
 using Profile.Web.Infrastructure;
 using Profile.Web.Models;
 
@@ -90,8 +91,6 @@ namespace Profile.Web.Modules
             }
             
         }
-
-
         public void Login(AccountViewModel model)
         {
             var request = new AccountVerificationRequest
@@ -122,29 +121,21 @@ namespace Profile.Web.Modules
          
         }
 
-        void SetUser(string username)
+        private void SetUser(string username)
         {
             //facilitate testing, should never be null in hosted environment 
             if (this.Context != null)
             {
-                var request = new AuthenticationRequest
-                {
-                    Name = "PROFILE.AUTH",
-                    Expiration = System.DateTime.UtcNow.AddDays(1),
-                    CreatePersistantCookie = true,
-                    UserData = username
-                };
-                var response = _authenticationService.SignIn(request);
-                var ticket = response.EncryptedTicket;
-                this.After += ctx => this.Context.Response.WithCookie(request.Name, response.EncryptedTicket,request.Expiration);
-               
+                
+                var response = _authenticationService.SignIn(username);
+                this.After += ctx => ctx.SetAuthorizationCookie(response.EncryptedTicket);
             }
         }
 
-
         public void Logout()
         {
-            this.After += ctx => this.Context.Response.WithCookie("PROFILE.AUTH", "", System.DateTime.MinValue);
+
+            this.After += ctx => ctx.ResetAuthorizationCookie();
         }
     }
 }

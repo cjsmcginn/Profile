@@ -10,6 +10,7 @@ using Nancy.TinyIoc;
 using Profile.Core;
 using Profile.Core.Domain;
 using Profile.Data;
+using Profile.Web.Extensions;
 using Profile.Web.Infrastructure;
 
 namespace Profile.Web
@@ -18,25 +19,16 @@ namespace Profile.Web
     {
         protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
         {
-            // your customization goes here
+            
+
             container.Register<DbContext, ProfileDbContext>().AsSingleton();
             container.Register(typeof (IRepository<>), typeof (EfRepository<>)).AsSingleton();
-            //speed things up
-            //container.Resolve<DbContext>();
-            
+
             pipelines.BeforeRequest.AddItemToStartOfPipeline((ctx) =>
             {
-                if (!ctx.Request.Cookies.ContainsKey("PROFILE.AUTH"))
-                    return ctx.Response;
-
-                if (!String.IsNullOrEmpty(ctx.Request.Cookies["PROFILE.AUTH"]))
-                {
-                    var ticket = FormsAuthentication.Decrypt(ctx.Request.Cookies["PROFILE.AUTH"]);
-                    if(ticket != null)
-                        ctx.CurrentUser = new UserIdentity(ticket.UserData);
-                }
-                return ctx.Response;
-            }); 
+                ctx.Authorize();
+                return null;
+            });
         }
     }
 }
