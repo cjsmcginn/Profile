@@ -12,5 +12,9 @@ namespace Profile.Core.Services
         string Username { get; set; }
         string Password { get; set; }
         string ConfirmPassword { get; set; }
+
+        string RecoveryEmailAddress { get; set; }
+
+        string RecoveryEmailAddressConfirm { get; set; }
     }
 }

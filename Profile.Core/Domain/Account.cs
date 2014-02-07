@@ -22,7 +22,7 @@ namespace Profile.Core.Domain
         public virtual int RetryCount { get; set; }
         public virtual bool IsLockedOut { get; set; }
 
-
+        public virtual string RecoveryEmailAddress { get; set; }
 
     }
 }

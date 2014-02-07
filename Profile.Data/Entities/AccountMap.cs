@@ -12,6 +12,7 @@ namespace Profile.Data.Entities
         public AccountMap()
         {
             Property(a => a.CreatedOnUtc).IsRequired();
+            Property(a => a.RecoveryEmailAddress).IsRequired().HasMaxLength(200);
             Property(a => a.Password).IsRequired().HasMaxLength(50);
             Property(a => a.Username).IsRequired().HasMaxLength(100);
             Property(a => a.PasswordSalt).HasMaxLength(100);

@@ -12,7 +12,7 @@ namespace Profile.Core.Services
         bool UsernameExists { get; set; }
         bool InavlidUsername { get; set; }
         bool InvalidPassword { get; set; }
-
+        bool InvalidRecoveryEmailAddress { get; set; }
         Guid AccountId { get; set; }
     }
 }
