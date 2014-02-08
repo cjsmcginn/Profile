@@ -9,9 +9,9 @@
     // Point to the controller definition function.
     angular.module('profile').controller(controllerId,
     [
-        '$scope', 'common','config','$http', login]);
+        '$scope', 'common','config','$http','spinner', login]);
 
-    function login($scope,common,config,$http) {
+    function login($scope,common,config,$http,spinner) {
         // Using 'Controller As' syntax, so we assign this to the vm variable (for viewmodel).
         var vm = this;
 
@@ -21,15 +21,23 @@
         
         vm.doLogin = doLogin;
         vm.logout = logout;
+        vm.activated = false;
         activate();
+        spinner.spinnerShow();
         function activate() {
-                var promises = [getAccount(),common.$broadcast(config.events.showModule, controllerId)];
-                common.activateController(promises, controllerId);
+            var p = getAccount().then(function() {
+                spinner.spinnerHide();
+            });
+            var promises = [p,common.$broadcast(config.events.showModule, controllerId)];
+            common.activateController(promises, controllerId);
+           
+            
         }
         function doLogin() {
             $http.post('/login', vm).success(function(data, status, headers, configuration) {
                 vm.account = data.account;
                 vm.isAuthenticated = data.isAuthenticated;
+                
             });
 
         }
@@ -39,10 +47,15 @@
             });
         }
         function getAccount() {
-            $http.get('/account').success(function(data, status, headers, configuration) {
+            return $http.get('/account').success(function(data, status, headers, configuration) {
                 vm.account = data.account;
                 vm.isAuthenticated = data.isAuthenticated;
+                
             });
+        }
+        function setStuff() {
+            vm.activated = true;
+            console.log('STuffed');
         }
         //#region Internal Methods        
 

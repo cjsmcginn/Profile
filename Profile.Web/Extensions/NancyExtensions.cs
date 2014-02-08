@@ -14,6 +14,10 @@ namespace Profile.Web.Extensions
     public static class NancyExtensions
     {
         static ProfileConfiguration profileConfiguration = System.Configuration.ConfigurationManager.GetSection("profileConfiguration") as ProfileConfiguration;
+        /// <summary>
+        /// Given a context assuming the auth cookie is set, this will add our user identity
+        /// </summary>
+        /// <param name="context"></param>
         public static void Authorize(this NancyContext context)
         {
             if (!context.Request.Cookies.ContainsKey(FormsAuthentication.FormsCookieName)) return;

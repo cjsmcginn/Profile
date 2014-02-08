@@ -5,7 +5,8 @@
     var profile = angular.module('profile');
     var events = {
         controllerActivateSuccess: 'controller.activateSuccess',
-        showModule:'showModule'
+        showModule: 'showModule',
+        spinnerToggle: 'spinner.toggle'
     };
     var config = {
         events:events
@@ -21,6 +22,6 @@
     //#region Configure the common services via commonConfig
     profile.config(['commonConfigProvider', function (cfg) {
         cfg.config.controllerActivateSuccessEvent = config.events.controllerActivateSuccess;
-        
+        cfg.config.spinnerToggleEvent = config.events.spinnerToggle;
     }]);
 })();

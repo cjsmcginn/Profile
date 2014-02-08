@@ -131,6 +131,7 @@
     <Content Include="Scripts\app\common\common.js" />
     <Content Include="Scripts\app\common\directives.js" />
     <Content Include="Scripts\app\common\logger.js" />
+    <Content Include="Scripts\app\common\spinner.js" />
     <Content Include="Scripts\app\config.js" />
     <Content Include="Scripts\app\config.route.js" />
     <Content Include="Scripts\app\layout\nav.html" />
@@ -160,6 +161,8 @@
     <Content Include="Scripts\es5-shim.min.js" />
     <Content Include="Scripts\lodash.js" />
     <Content Include="Scripts\lodash.min.js" />
+    <Content Include="Scripts\spin.js" />
+    <Content Include="Scripts\spin.min.js" />
     <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\toastr.min.js" />
     <Content Include="Scripts\toastr.min.js.map" />

@@ -1,27 +1,44 @@
-﻿<div id="shell"  class="row" data-ng-controller="shell as vm">
-    <div class="col-sm-12">
-        <div class="modal show">
+﻿<div id="shell" data-ng-controller="shell as vm">
+    <div class="row">
+        <div class="col-sm-12">
 
-            <div class="modal-content col-sm-8 col-sm-offset-2">
-                <div class="modal-header">
-                    <h4 class="modal-title">My Application</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div data-ng-include="'/scripts/app/layout/nav.html'">
+            <div class="modal show">
+
+                <div class="modal-content col-sm-8 col-sm-offset-2">
+                    <div class="modal-header">
+                        <h4 class="modal-title">My Application</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div data-ng-include="'/scripts/app/layout/nav.html'">
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                </div>
-                <div class="modal-footer">
-                    <div class="col-sm-2 pull-right">
-                        <img src="../../../Content/images/logo-32.png" />
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col-sm-2 pull-right">
+                            <img src="../../../Content/images/logo-32.png" />
+                        </div>
                     </div>
                 </div>
-            </div><!-- /.modal-content -->
 
-        </div><!-- /.modal -->
+            </div>
+        </div>
+
     </div>
+
+
+
+    <div class="page-splash" data-ng-show="vm.isBusy">
+        <div data-cc-spinner="vm.spinnerOptions"></div>
+            <div class="page-splash-message page-splash-message-subtle">
+
+                {{vm.busyMessage}}
+            </div>
+ 
+
+    </div>
+
 </div>

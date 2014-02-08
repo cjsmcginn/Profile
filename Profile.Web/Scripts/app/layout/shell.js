@@ -15,9 +15,26 @@
         var vm = this;
         var logSuccess = common.logger.getLogFn(controllerId, 'success');
         var events = config.events;
+        vm.spinnerOptions = {
+            radius: 40,
+            lines: 7,
+            length: 0,
+            width: 30,
+            speed: 1.7,
+            corners: 1.0,
+            trail: 100,
+            color: '#F58A00'
+
+
+        };
         // Bindable properties and functions are placed on vm.
         //vm.activate = activate;
         vm.title = 'shell';
+        vm.busyMessage = 'Please Wait...';
+        function toggleSpinner(on) { vm.isBusy = on; }
+
+        vm.isBusy = true;
+
         activate();
         function activate() {
             logSuccess('Profiler Angular loaded!', null, true);
@@ -26,10 +43,17 @@
                     //vm.showSplash = false;
                 });
         }
+        $rootScope.$on(events.spinnerToggle,
+            function (data, args) {
 
+                 toggleSpinner(args.show);
+            }
+        );
         $rootScope.$on(events.controllerActivateSuccess,
-            function (data, args) { logSuccess('Loaded ' + args.controllerId, null, true); });
+            function(data, args) {
+                logSuccess('Loaded ' + args.controllerId, null, true);
 
+            });
         //#region Internal Methods        
 
         //#endregion

@@ -19,11 +19,11 @@ namespace Profile.Web
     {
         protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
         {
-            
 
-            container.Register<DbContext, ProfileDbContext>().AsSingleton();
-            container.Register(typeof (IRepository<>), typeof (EfRepository<>)).AsSingleton();
 
+            container.Register<DbContext, ProfileDbContext>().AsMultiInstance();
+            container.Register(typeof (IRepository<>), typeof (EfRepository<>)).AsMultiInstance();
+            //adds current user to pipeline if authenticated
             pipelines.BeforeRequest.AddItemToStartOfPipeline((ctx) =>
             {
                 ctx.Authorize();
