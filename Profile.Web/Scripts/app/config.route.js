@@ -1,13 +1,13 @@
 ﻿(function () {
     'use strict';
 
-    // Module name is handy for logging
-    var id = 'config';
-    var profile = angular.module('profile');
+    var app = angular.module('profile');
+
     // Collect the routes
-    profile.constant('routes', getRoutes());
+    app.constant('routes', getRoutes());
+
     // Configure the routes and route resolvers
-    profile.config(['$routeProvider', 'routes', routeConfigurator]);
+    app.config(['$routeProvider', 'routes', routeConfigurator]);
     function routeConfigurator($routeProvider, routes) {
 
         routes.forEach(function (r) {
@@ -26,7 +26,10 @@
             return $routeProvider;
         }
     }
+
+    prime.$inject = ['datacontext'];
     function prime(dc) { return dc.prime(); }
+
     // Define the routes 
     function getRoutes() {
         return [

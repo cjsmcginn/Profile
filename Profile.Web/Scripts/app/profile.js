@@ -11,7 +11,8 @@
         'ngRoute',          // routing
 
         // Custom modules 
-        'common'           // common functions, logger, spinner
+        'common'        // common functions, logger, spinner
+  
         // 3rd Party Modules
         
     ]);
