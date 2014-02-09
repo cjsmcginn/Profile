@@ -6,7 +6,8 @@
     var events = {
         controllerActivateSuccess: 'controller.activateSuccess',
         showModule: 'showModule',
-        spinnerToggle: 'spinner.toggle'
+        spinnerToggle: 'spinner.toggle',
+        showErrors:'showErrors'
     };
     var config = {
         events:events

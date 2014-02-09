@@ -31,10 +31,17 @@
         //vm.activate = activate;
         vm.title = 'shell';
         vm.busyMessage = 'Please Wait...';
+
         function toggleSpinner(on) { vm.isBusy = on; }
+        function showErrors(on) { vm.showErrors = on; }
 
+        function closeErrors() {
+
+            common.$broadcast(events.showErrors, { show: false, errors: null });
+
+        };
         vm.isBusy = true;
-
+        vm.closeErrors = closeErrors;
         activate();
         function activate() {
             logSuccess('Profiler Angular loaded!', null, true);
@@ -49,11 +56,16 @@
                  toggleSpinner(args.show);
             }
         );
+        $rootScope.$on(events.showErrors, function (data, args) {
+            vm.errors = args.errors;
+            showErrors(args.show);
+        });
         $rootScope.$on(events.controllerActivateSuccess,
             function(data, args) {
                 logSuccess('Loaded ' + args.controllerId, null, true);
 
             });
+
         //#region Internal Methods        
 
         //#endregion

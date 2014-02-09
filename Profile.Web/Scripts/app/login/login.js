@@ -30,8 +30,8 @@
             });
             var promises = [p,common.$broadcast(config.events.showModule, controllerId)];
             common.activateController(promises, controllerId);
-           
-            
+            common.$broadcast(config.events.showErrors, { show: true, errors:['You','Fucked','Up'] });
+
         }
         function doLogin() {
             $http.post('/login', vm).success(function(data, status, headers, configuration) {
